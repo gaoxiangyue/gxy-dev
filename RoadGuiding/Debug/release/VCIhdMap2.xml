@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<hdmap version="1.00" copyright="vci" time="2018.01.26 22:12:18.920 周五">
+    <bounds minlat="43.84982340000" minlon="125.33769690000" maxlat="43.85606700000" maxlon="125.34815994281"/>
+    <node id="0" visible="true" lat="43.8548848" lon="125.3440274" alt="0" lspeed="24" x="88.1996072" y="-215.9162720">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="1" visible="true" lat="43.8531168" lon="125.3440331" alt="0" lspeed="36" x="88.6598511" y="-19.1025120">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="2" visible="true" lat="43.8501154" lon="125.3462254" alt="0" lspeed="36" x="264.6842049" y="315.0133360">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="3" visible="true" lat="43.8528412" lon="125.3448272" alt="0" lspeed="36" x="152.4156831" y="11.5772800">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="4" visible="true" lat="43.8549292" lon="125.3471053" alt="0" lspeed="36" x="335.3043739" y="-220.8588800">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="5" visible="true" lat="43.8537006" lon="125.3481599" alt="0" lspeed="60" x="419.9835234" y="-84.0911280">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="6" visible="true" lat="43.8560484" lon="125.3439515" alt="0" lspeed="36" x="82.1044775" y="-345.4482240">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="7" visible="true" lat="43.8539014" lon="125.3377413" alt="0" lspeed="36" x="-416.4782483" y="-106.4441840">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="8" visible="true" lat="43.8560670" lon="125.3425207" alt="0" lspeed="36" x="-32.7631044" y="-347.5187760">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="9" visible="true" lat="43.8549420" lon="125.3463254" alt="0" lspeed="36" x="272.6911510" y="-222.2837760">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="10" visible="true" lat="43.8505603" lon="125.3471245" alt="0" lspeed="36" x="336.8704843" y="265.4870680">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="11" visible="true" lat="43.8542840" lon="125.3477689" alt="0" lspeed="36" x="388.5847601" y="-149.0352160">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="12" visible="true" lat="43.8530783" lon="125.3444233" alt="0" lspeed="36" x="119.9875333" y="-14.8166920">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="13" visible="true" lat="43.8498234" lon="125.3421773" alt="0" lspeed="36" x="-60.3382738" y="347.5187760">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="14" visible="true" lat="43.8521297" lon="125.3377634" alt="0" lspeed="36" x="-414.7162650" y="90.7814600">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="15" visible="true" lat="43.8529737" lon="125.3447025" alt="0" lspeed="36" x="142.4036540" y="-3.1726200">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="16" visible="true" lat="43.8515851" lon="125.3418719" alt="0" lspeed="36" x="-84.8564721" y="151.4063320">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="17" visible="true" lat="43.8499657" lon="125.3437795" alt="0" lspeed="36" x="68.3029236" y="331.6779400">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="18" visible="true" lat="43.8545361" lon="125.3386870" alt="0" lspeed="36" x="-340.5491355" y="-177.0989880">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="19" visible="true" lat="43.8507332" lon="125.3471787" alt="0" lspeed="36" x="341.2211843" y="246.2398400">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="20" visible="true" lat="43.8500535" lon="125.3461932" alt="0" lspeed="36" x="262.0991369" y="321.9040440">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="21" visible="true" lat="43.8545951" lon="125.3395038" alt="0" lspeed="36" x="-274.9728030" y="-183.6668680">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="22" visible="true" lat="43.8549775" lon="125.3441604" alt="0" lspeed="16" x="98.8771777" y="-226.2356360">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="23" visible="true" lat="43.8498321" lon="125.3426054" alt="0" lspeed="36" x="-25.9659280" y="346.5502920">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="24" visible="true" lat="43.8517258" lon="125.3445850" alt="0" lspeed="36" x="132.9728051" y="135.7436080">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="25" visible="true" lat="43.8516598" lon="125.3418685" alt="0" lspeed="36" x="-85.1293450" y="143.0907280">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="26" visible="true" lat="43.8543747" lon="125.3419586" alt="0" lspeed="20" x="-77.8918537" y="-159.1319400">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="27" visible="true" lat="43.8544249" lon="125.3396379" alt="0" lspeed="36" x="-264.2074683" y="-164.7202040">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="28" visible="true" lat="43.8520593" lon="125.3417698" alt="0" lspeed="36" x="-93.0531456" y="98.6183880">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="29" visible="true" lat="43.8501580" lon="125.3470945" alt="0" lspeed="36" x="334.4640554" y="310.2711040">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="30" visible="true" lat="43.8501503" lon="125.3463166" alt="0" lspeed="36" x="272.0064991" y="311.1282680">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="31" visible="true" lat="43.8546400" lon="125.3420559" alt="0" lspeed="14" x="-70.0798771" y="-188.6651360">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="32" visible="true" lat="43.8504675" lon="125.3470945" alt="0" lspeed="36" x="334.4623207" y="275.8175640">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="33" visible="true" lat="43.8546184" lon="125.3393872" alt="0" lspeed="36" x="-284.3338098" y="-186.2606240">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="34" visible="true" lat="43.8499546" lon="125.3419746" alt="0" lspeed="36" x="-76.6129797" y="332.9135920">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="35" visible="true" lat="43.8543862" lon="125.3397667" alt="0" lspeed="36" x="-253.8670204" y="-160.4121200">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="36" visible="true" lat="43.8530979" lon="125.3419232" alt="0" lspeed="36" x="-80.7356466" y="-16.9985640">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="37" visible="true" lat="43.8548593" lon="125.3473737" alt="0" lspeed="36" x="356.8529050" y="-213.0776120">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="38" visible="true" lat="43.8526590" lon="125.3448916" alt="0" lspeed="36" x="157.5866078" y="31.8597840">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="39" visible="true" lat="43.8521554" lon="125.3419090" alt="0" lspeed="36" x="-81.8770018" y="87.9205360">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="40" visible="true" lat="43.8522226" lon="125.3376969" alt="0" lspeed="36" x="-420.0547196" y="80.4398320">
+        <tag k="name" v="node"/>
+    </node>
+    <node id="41" visible="true" lat="43.8548216" lon="125.3439368" alt="0" lspeed="36" x="80.9259951" y="-208.8808480">
+        <tag k="name" v="node"/>
+    </node>
+    <way id="0" velocity="80" visible="true">
+        <nd ref="0"/>
+        <nd ref="1"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="1" velocity="80" visible="true">
+        <nd ref="0"/>
+        <nd ref="22"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="2" velocity="80" visible="true">
+        <nd ref="1"/>
+        <nd ref="12"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="3" velocity="80" visible="true">
+        <nd ref="2"/>
+        <nd ref="20"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="4" velocity="80" visible="true">
+        <nd ref="3"/>
+        <nd ref="38"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="5" velocity="80" visible="true">
+        <nd ref="4"/>
+        <nd ref="37"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="6" velocity="80" visible="true">
+        <nd ref="5"/>
+        <nd ref="19"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="7" velocity="80" visible="true">
+        <nd ref="6"/>
+        <nd ref="22"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="8" velocity="80" visible="true">
+        <nd ref="7"/>
+        <nd ref="40"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="9" velocity="80" visible="true">
+        <nd ref="8"/>
+        <nd ref="6"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="10" velocity="80" visible="true">
+        <nd ref="9"/>
+        <nd ref="4"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="11" velocity="80" visible="true">
+        <nd ref="10"/>
+        <nd ref="32"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="12" velocity="80" visible="true">
+        <nd ref="11"/>
+        <nd ref="5"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="13" velocity="80" visible="true">
+        <nd ref="12"/>
+        <nd ref="15"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="14" velocity="80" visible="true">
+        <nd ref="13"/>
+        <nd ref="34"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="15" velocity="80" visible="true">
+        <nd ref="14"/>
+        <nd ref="28"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="16" velocity="80" visible="true">
+        <nd ref="15"/>
+        <nd ref="3"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="17" velocity="80" visible="true">
+        <nd ref="16"/>
+        <nd ref="25"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="18" velocity="80" visible="true">
+        <nd ref="17"/>
+        <nd ref="23"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="19" velocity="80" visible="true">
+        <nd ref="18"/>
+        <nd ref="7"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="20" velocity="80" visible="true">
+        <nd ref="19"/>
+        <nd ref="10"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="21" velocity="80" visible="true">
+        <nd ref="20"/>
+        <nd ref="17"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="22" velocity="80" visible="true">
+        <nd ref="21"/>
+        <nd ref="33"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="23" velocity="80" visible="true">
+        <nd ref="22"/>
+        <nd ref="9"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="24" velocity="80" visible="true">
+        <nd ref="23"/>
+        <nd ref="13"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="25" velocity="80" visible="true">
+        <nd ref="24"/>
+        <nd ref="17"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="26" velocity="80" visible="true">
+        <nd ref="25"/>
+        <nd ref="39"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="27" velocity="80" visible="true">
+        <nd ref="26"/>
+        <nd ref="35"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="28" velocity="80" visible="true">
+        <nd ref="26"/>
+        <nd ref="31"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="29" velocity="80" visible="true">
+        <nd ref="27"/>
+        <nd ref="21"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="30" velocity="80" visible="true">
+        <nd ref="28"/>
+        <nd ref="39"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="31" velocity="80" visible="true">
+        <nd ref="29"/>
+        <nd ref="30"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="32" velocity="80" visible="true">
+        <nd ref="30"/>
+        <nd ref="2"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="33" velocity="80" visible="true">
+        <nd ref="31"/>
+        <nd ref="41"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="34" velocity="80" visible="true">
+        <nd ref="31"/>
+        <nd ref="8"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="35" velocity="80" visible="true">
+        <nd ref="32"/>
+        <nd ref="29"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="36" velocity="80" visible="true">
+        <nd ref="33"/>
+        <nd ref="18"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="37" velocity="80" visible="true">
+        <nd ref="34"/>
+        <nd ref="16"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="38" velocity="80" visible="true">
+        <nd ref="35"/>
+        <nd ref="27"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="39" velocity="80" visible="true">
+        <nd ref="36"/>
+        <nd ref="1"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="40" velocity="80" visible="true">
+        <nd ref="36"/>
+        <nd ref="26"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="41" velocity="80" visible="true">
+        <nd ref="37"/>
+        <nd ref="11"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="42" velocity="80" visible="true">
+        <nd ref="38"/>
+        <nd ref="24"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="43" velocity="80" visible="true">
+        <nd ref="39"/>
+        <nd ref="36"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="44" velocity="80" visible="true">
+        <nd ref="40"/>
+        <nd ref="14"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+    <way id="45" velocity="80" visible="true">
+        <nd ref="41"/>
+        <nd ref="0"/>
+        <tag k="highway" v="hdway"/>
+    </way>
+</hdmap>

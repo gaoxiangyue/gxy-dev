@@ -1,0 +1,45 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/App0.png</file>
+        <file>res/App1.png</file>
+        <file>res/App2.png</file>
+        <file>res/car0.png</file>
+        <file>res/carup_g1.fw.png</file>
+        <file>res/home0.png</file>
+        <file>res/home1.png</file>
+        <file>res/home2.png</file>
+        <file>res/map.icon.fw.png</file>
+        <file>res/mappos0.png</file>
+        <file>res/mappos1.png</file>
+        <file>res/pos_e.png</file>
+        <file>res/pos_s.png</file>
+        <file>res/setting1.png</file>
+        <file>res/setting2.png</file>
+        <file>res/steering_wheel1.png</file>
+        <file>res/steering_wheel4.png</file>
+        <file>res/traffic_sensor1.png</file>
+        <file>res/traffic_sensor2.png</file>
+        <file>res/trafficlight.fw.png</file>
+        <file>res/trafficlight0.fw.png</file>
+        <file>res/trafficlight1.fw.png</file>
+        <file>res/trafficlight2.fw.png</file>
+        <file>res/trafficlight3.fw.png</file>
+        <file>res/background0.png</file>
+        <file>res/setting0.png</file>
+        <file>res/car1.png</file>
+        <file>res/steering_wheel0.png</file>
+        <file>res/traffic_sensor0.png</file>
+        <file>res/car2.png</file>
+        <file>res/mappos4.png</file>
+        <file>res/panel2.1.png</file>
+        <file>res/panel2.png</file>
+        <file>res/panel1.png</file>
+        <file>res/panel1.1.png</file>
+        <file>res/swithch_off1.png</file>
+        <file>res/swithch_on1.png</file>
+        <file>res/homeMovie.gif</file>
+        <file>res/car_t11.png</file>
+        <file>res/car_t21.png</file>
+        <file>res/car_t2.png</file>
+    </qresource>
+</RCC>

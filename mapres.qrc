@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/download00.png</file>
+        <file>res/download0.png</file>
+        <file>res/pos_e.png</file>
+        <file>res/pos_s.png</file>
+        <file>res/zoomin.png</file>
+        <file>res/zoomout.png</file>
+        <file>res/posing.png</file>
+        <file>res/navi.png</file>
+        <file>res/nextstep.png</file>
+    </qresource>
+</RCC>

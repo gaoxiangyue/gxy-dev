@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/download00.png</file>
+        <file>res/download0.png</file>
+        <file>res/pos_e.png</file>
+        <file>res/pos_s.png</file>
+    </qresource>
+</RCC>
