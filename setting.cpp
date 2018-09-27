@@ -34,7 +34,8 @@ Setting::Setting(QWidget *parent)  :
   , udpPortLabel1(new QLabel(tr("目标主机")))
   , udpPortLabel2(new QLabel(tr("本地端口号")))
   , udpPortLabel3(new QLabel(tr("目标端口")))
-  , hostEdit0(new MyIpAddrEdit(this))
+//  , hostEdit0(new MyIpAddrEdit(this))
+  , hostPortComboBox(new QComboBox(this))
   , hostEdit1(new MyIpAddrEdit(this))
   , portEdit0(new QLineEdit(tr("8080")))
   , portEdit1(new QLineEdit(tr("8080")))
@@ -139,18 +140,18 @@ Setting::Setting(QWidget *parent)  :
           if(address.protocol() == QAbstractSocket::IPv4Protocol)
           {
               //IPv4地址
-              if (address.toString().contains("127.0."))
-              {
-                  continue;
-              }
-              local_ip = address.toString();
+              hostPortComboBox->addItem(address.toString());
+//              local_ip = address.toString();
           }
     }
 
-    hostEdit0->setPalette(pe1);
-    hostEdit0->settext(local_ip);
+//    hostEdit0->setPalette(pe1);
+//    hostEdit0->settext(local_ip);
+    hostPortComboBox->setPalette(pe1);
+    hostPortComboBox->setMinimumSize(1.5*WIDTH,HEIGHT);
+    hostPortComboBox->setMaximumSize(1.5*WIDTH,HEIGHT);
     hostEdit1->setPalette(pe1);
-    hostEdit1->settext(local_ip);
+    hostEdit1->settext(hostPortComboBox->currentText());
     QValidator *validator = new QIntValidator(0,99999,this);  //設定輸入範圍0到100
     portEdit0->setMinimumSize(1.5*WIDTH,HEIGHT);
     portEdit0->setMaximumSize(1.5*WIDTH,HEIGHT);
@@ -158,14 +159,14 @@ Setting::Setting(QWidget *parent)  :
     portEdit1->setMinimumSize(1.5*WIDTH,HEIGHT);
     portEdit1->setMaximumSize(1.5*WIDTH,HEIGHT);
     portEdit1->setValidator(validator);
-    udp.bind(hostEdit0->text(),portEdit0->text().toInt(Q_NULLPTR,10));
+    udp.bind(hostPortComboBox->currentText(),portEdit0->text().toInt(Q_NULLPTR,10));
 
     QGridLayout *udpLayout = new QGridLayout;
     udpLayout->addWidget(udpPortLabel0,0,0);
     udpLayout->addWidget(udpPortLabel1,2,0);
     udpLayout->addWidget(udpPortLabel2,1,0);
     udpLayout->addWidget(udpPortLabel3,3,0);
-    udpLayout->addWidget(hostEdit0,0,1);
+    udpLayout->addWidget(hostPortComboBox,0,1);
     udpLayout->addWidget(hostEdit1,2,1);
     udpLayout->addWidget(portEdit0,1,1);
     udpLayout->addWidget(portEdit1,3,1);
@@ -220,7 +221,7 @@ Setting::Setting(QWidget *parent)  :
     connect(waitResponseSpinBox,SIGNAL(valueChanged(int)),this,SLOT(timerChanged(int)));
 //==========udp================================================
     //connect(&udp, &UdpRxTx::response, this, &showResponse);
-    connect(hostEdit0, &MyIpAddrEdit::textchanged,this, &rebindudp);
+    connect(hostPortComboBox, &QComboBox::currentTextChanged,this, &rebindudp);
     connect(portEdit0, &QLineEdit::textChanged,this, &rebindudp);
 //==========thread=============================================
     connect(&thread, &MasterThread::response, this, &showResponse);
@@ -244,8 +245,8 @@ void Setting::paintEvent(QPaintEvent *)
 
 void Setting::rebindudp()
 {
-    udp.bind(hostEdit0->text(),portEdit0->text().toInt(Q_NULLPTR,10));
-    qDebug()<<"rebind"<<hostEdit0->text()<<portEdit0->text().toInt(Q_NULLPTR,10);
+    udp.bind(hostPortComboBox->currentText(),portEdit0->text().toInt(Q_NULLPTR,10));
+    qDebug()<<"rebind"<<hostPortComboBox->currentText()<<portEdit0->text().toInt(Q_NULLPTR,10);
 }
 
 void Setting::refreshPort()
@@ -304,7 +305,7 @@ void Setting::transaction()
             statusLabel->setText(tr("状态: 运行中,端口无应答."));
         else
             statusLabel->setText(tr("状态: 运行中,已连接端口 %1.")
-                             .arg(hostEdit1->text()+portEdit1->text()));
+                             .arg(hostEdit1->text()+":"+portEdit1->text()));
     }
 }
 

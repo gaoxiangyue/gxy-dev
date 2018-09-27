@@ -194,7 +194,8 @@ private:
     QLabel *udpPortLabel1;
     QLabel *udpPortLabel2;
     QLabel *udpPortLabel3;
-    MyIpAddrEdit  *hostEdit0;
+//    MyIpAddrEdit  *hostEdit0;
+    QComboBox *hostPortComboBox;
     MyIpAddrEdit  *hostEdit1;
     QLineEdit *portEdit0;
     QLineEdit *portEdit1;
