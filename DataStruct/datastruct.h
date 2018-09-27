@@ -61,6 +61,52 @@ struct Point
     }
 };
 
+
+typedef struct HMI2ECU_DATA{
+        int dt0_systemMode;
+        int dt1_cruisingSpeed;
+        int dt2_timeHeadway;
+        int dt3_RoadPointNo;
+        double dt4_RoadPointLon;
+        double dt5_RoadPointLat;
+        double dt6_RoadPointAlt;
+        int dt7_RoadPointLspeed;
+        int dt8_ReservedRet;
+        int dt9_ReservedRet;
+    } HMI2ECU_DATA;
+
+typedef struct ECU2HMI_DATA{
+        int dt0_drive_mode;
+        int dt1_system_state;
+        int dt2_vehicle_stangle;
+        int dt3_navi_id;
+        double dt4_vehicle_lon;
+        double dt5_vehicle_lat;
+        double dt6_vehicle_alt;
+        double dt7_vehicle_speed;
+        int dt8_traffic_sign;
+        //Lane_Parameters
+        int dt9_lane_id;
+        double dt10_lane_a;
+        double dt11_lane_b;
+        double dt12_lane_c;
+        int dt13_lane_class;
+        double dt14_lane_width;
+        //Object_Parameters
+        int dt15_object_id;
+        double dt16_object_x;
+        double dt17_object_y;
+        double dt18_object_vx;
+        double dt19_object_vy;
+        int dt20_object_class;
+        double dt21_object_width;
+        double dt22_object_length;
+        double dt23_object_height;
+        double dt24_object_angle;
+        double dt25_reserved_ret;
+    } ECU2HMI_DATA;
+
+
 class Datastruct
 {
 public:

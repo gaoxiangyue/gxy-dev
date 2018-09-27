@@ -6,6 +6,7 @@
 #include "udprxtx.h"
 #include "myipaddredit.h"
 #include <QGroupBox>
+#include "DataStruct/datastruct.h"
 
 #define RESPON_THRESHOLD 5      //无应答五次重连
 
@@ -15,73 +16,6 @@ class QSpinBox;
 class QPushButton;
 class QComboBox;
 class QTextEdit;
-
-typedef struct HMI2ECU_DATA{
-        int dt0_systemMode;
-        int dt1_cruisingSpeed;
-        int dt2_timeHeadway;
-        int dt3_RoadPointNo;
-        double dt4_RoadPointLon;
-        double dt5_RoadPointLat;
-        double dt6_RoadPointAlt;
-        int dt7_RoadPointLspeed;
-        int dt8_ReservedRet;
-        int dt9_ReservedRet;
-        int dt10_ReservedRet;
-    } HMI2ECU_DATA;
-
-typedef struct ECU2HMI_DATA{
-        int dt0_systemMode;
-        int dt1_warningRet;
-        double dt2_SteeringAngle;
-        int dt3_RoadPointNo;
-        double dt4_CurrentLon;
-        double dt5_CurrentLat;
-        double dt6_CurrentAlt;
-        double dt7_VehicleSpeed;
-        int dt8_TafficSignal;
-        //Lane_Parameters
-        double dt9_L0_A0_Ret;
-        double dt10_L0_B0_Ret;
-        double dt11_L0_C0_Ret;
-        double dt12_L1_A1_Ret;
-        double dt13_L1_B1_Ret;
-        double dt14_L1_C1_Ret;
-        double dt15_L2_A2_Ret;
-        double dt16_L2_B2_Ret;
-        double dt17_L2_C2_Ret;
-        double dt18_L3_A3_Ret;
-        double dt19_L3_B3_Ret;
-        double dt20_L3_C3_Ret;
-        //Object_Parameters
-        double dt21_Obj0_Dis;
-        double dt22_Obj0_Angle;
-        double dt23_Obj0_Heading;
-        double dt24_Obj0_Width;
-        double dt25_Obj0_Class;
-        double dt26_Obj1_Dis;
-        double dt27_Obj1_Angle;
-        double dt28_Obj1_Heading;
-        double dt29_Obj1_Width;
-        double dt30_Obj1_Class;
-        double dt31_Obj2_Dis;
-        double dt32_Obj2_Angle;
-        double dt33_Obj2_Heading;
-        double dt34_Obj2_Width;
-        double dt35_Obj2_Class;
-        double dt36_Obj3_Dis;
-        double dt37_Obj3_Angle;
-        double dt38_Obj3_Heading;
-        double dt39_Obj3_Width;
-        double dt40_Obj3_Class;
-        double dt41_Obj4_Dis;
-        double dt42_Obj4_Angle;
-        double dt43_Obj4_Heading;
-        double dt44_Obj4_Width;
-        double dt45_Obj4_Class;
-
-        double dt46_ReservedRet;
-    } ECU2HMI_DATA;
 
 enum ConnectType{UNKNOWN_Communication,SER_Communication,UDP_Communication};
 
@@ -97,52 +31,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
 signals:
-    void getSystem_mode(int dt0);
-    void getSystem_warning(int dt1);
-    void getSteering_Angle(double dt2);
-    void getRoadPoint_No(int dt3);
-    void getCurrent_Pos(double dt4,double dt5);
-    void getCurrent_Alt(double dt6);
-    void getVehicle_speed(double dt7);
-    void getTraffic_signal(int dt8);
-    void getSignal_dt9(double);
-    void getSignal_dt10(double);
-    void getSignal_dt11(double);
-    void getSignal_dt12(double);
-    void getSignal_dt13(double);
-    void getSignal_dt14(double);
-    void getSignal_dt15(double);
-    void getSignal_dt16(double);
-    void getSignal_dt17(double);
-    void getSignal_dt18(double);
-    void getSignal_dt19(double);
-    void getSignal_dt20(double);
-    void getSignal_dt21(double);
-    void getSignal_dt22(double);
-    void getSignal_dt23(double);
-    void getSignal_dt24(double);
-    void getSignal_dt25(double);
-    void getSignal_dt26(double);
-    void getSignal_dt27(double);
-    void getSignal_dt28(double);
-    void getSignal_dt29(double);
-    void getSignal_dt30(double);
-    void getSignal_dt31(double);
-    void getSignal_dt32(double);
-    void getSignal_dt33(double);
-    void getSignal_dt34(double);
-    void getSignal_dt35(double);
-    void getSignal_dt36(double);
-    void getSignal_dt37(double);
-    void getSignal_dt38(double);
-    void getSignal_dt39(double);
-    void getSignal_dt40(double);
-    void getSignal_dt41(double);
-    void getSignal_dt42(double);
-    void getSignal_dt43(double);
-    void getSignal_dt44(double);
-    void getSignal_dt45(double);
-    void getSignal_dt46(double);
+    void getSignal_ecu2hmi(ECU2HMI_DATA data);
 
 private slots:
     void transaction();
@@ -161,7 +50,6 @@ public slots:
     void settingRoadPointLat(double dt5);
     void settingRoadPointAlt(double dt6);
     void settingRoadPointLspeed(int dt7);
-
 
 private:
     ConnectType myConnectType;

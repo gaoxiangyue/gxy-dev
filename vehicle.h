@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QMouseEvent>
+#include "DataStruct/datastruct.h"
 
 class Vehicle : public QWidget
 {
@@ -20,6 +21,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) ;
 
 private:
+    //dispaly
     double vehicle_speed,engine_temp,engine_speed,remaining_energy;
     int drive_mode;
     double steering_angle;//,steerang_speed,break_pressure;
@@ -28,7 +30,7 @@ private:
     int show_index;
     QPoint pos1,pos2,size1,size2;
     QLabel *SysMode_Ret,*Steering_Ang;//,*SteerAng_Speed,*Breaking_Pressure;
-public slots:
+//public slots:
     void showVehicle_speed(double vehicle_speed);
     void showEngine_temp(double engine_temp);
     void showEngine_speed(double engine_speed);
@@ -37,6 +39,8 @@ public slots:
     void showSteering_angle(double deg);
     //void showSteerAng_speed(double degps);
     //void showBreaking_pressure(double pressure);
+public slots:
+    void receive_ecu_data(ECU2HMI_DATA data);
 
 };
 

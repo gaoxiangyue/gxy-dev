@@ -196,3 +196,8 @@ void Vehicle::showBreaking_pressure(double pressure)
     Breaking_Pressure->setText(tr("Breaking_Pressure:")+QString::number(break_pressure,10,1));
 }
 */
+void Vehicle::receive_ecu_data(ECU2HMI_DATA data){
+ this->showDriving_mode(data.dt0_drive_mode);
+ this->showSteering_angle(data.dt2_vehicle_stangle);
+ this->showVehicle_speed(data.dt7_vehicle_speed);
+}

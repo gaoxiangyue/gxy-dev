@@ -488,3 +488,9 @@ void MapWidget::touchEvent(QTouchEvent *event)
             qDebug()<<"touch default";
     }
 }
+
+void MapWidget::receive_ecu_data(ECU2HMI_DATA data)
+{
+    this->setgeocenter(data.dt4_vehicle_lon,data.dt5_vehicle_lat);
+    this->setRoadPointNo(data.dt3_navi_id);
+}

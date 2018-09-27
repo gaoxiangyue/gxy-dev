@@ -72,12 +72,10 @@ Widget::Widget(QWidget *parent) :
     QHBoxLayout *mainLayout =new QHBoxLayout(this);
     mainLayout->addLayout(LeftLayout);
     mainLayout->addWidget(stackedWidget,0,Qt::AlignJustify);
-
     mainLayout->setStretchFactor(LeftLayout,1);   //伸縮時左右分別為1：7拉伸
     mainLayout->setStretchFactor(stackedWidget,left_num-1);
     mainLayout->setMargin(0);          //設定邊距為5
     mainLayout->setSpacing(0);         //設定元件間的距離為5
-
     selectItem0();
 
     //HMI2ECU
@@ -91,56 +89,11 @@ Widget::Widget(QWidget *parent) :
     connect(map,SIGNAL(getRoadPointLspeed(int)),setting,SLOT(settingRoadPointLspeed(int)));
     connect(map->next_step_bt,SIGNAL(clicked(bool)),this,SLOT(selectItem1()));
     connect(control->next_step_bt,SIGNAL(clicked(bool)),this,SLOT(selectItem2()));
-
-    //connect(control->mySpeedSlider,SIGNAL(valueChanged(int)),vehicle,SLOT(showDriving_mode(int)));
-    //connect(control->myHtSlider,SIGNAL(valueChanged(int)),traffic,SLOT(showNRYG_light(int)));
     //ECU2HMI
-    connect(setting,SIGNAL(getSystem_mode(int)),vehicle,SLOT(showDriving_mode(int)));
-    connect(setting,SIGNAL(getSteering_Angle(double)),vehicle,SLOT(showSteering_angle(double)));
-    connect(setting,SIGNAL(getVehicle_speed(double)),vehicle,SLOT(showVehicle_speed(double)));
-    connect(setting,SIGNAL(getRoadPoint_No(int)),map,SLOT(setRoadPointNo(int)));
-    connect(setting,SIGNAL(getCurrent_Pos(double,double)),map,SLOT(setgeocenter(double,double)));
+    connect(setting, SIGNAL(getSignal_ecu2hmi(ECU2HMI_DATA)),vehicle,SLOT(receive_ecu_data(ECU2HMI_DATA)));
+    connect(setting, SIGNAL(getSignal_ecu2hmi(ECU2HMI_DATA)),map,SLOT(receive_ecu_data(ECU2HMI_DATA)));
+    connect(setting, SIGNAL(getSignal_ecu2hmi(ECU2HMI_DATA)),traffic,SLOT(receive_ecu_data(ECU2HMI_DATA)));
 
-    connect(setting,SIGNAL(getSignal_dt9(double)),traffic,SLOT(show_L0_a(double)));
-    connect(setting,SIGNAL(getSignal_dt10(double)),traffic,SLOT(show_L0_b(double)));
-    connect(setting,SIGNAL(getSignal_dt11(double)),traffic,SLOT(show_L0_c(double)));
-    connect(setting,SIGNAL(getSignal_dt12(double)),traffic,SLOT(show_L1_a(double)));
-    connect(setting,SIGNAL(getSignal_dt13(double)),traffic,SLOT(show_L1_b(double)));
-    connect(setting,SIGNAL(getSignal_dt14(double)),traffic,SLOT(show_L1_c(double)));
-    connect(setting,SIGNAL(getSignal_dt15(double)),traffic,SLOT(show_L2_a(double)));
-    connect(setting,SIGNAL(getSignal_dt16(double)),traffic,SLOT(show_L2_b(double)));
-    connect(setting,SIGNAL(getSignal_dt17(double)),traffic,SLOT(show_L2_c(double)));
-    connect(setting,SIGNAL(getSignal_dt18(double)),traffic,SLOT(show_L3_a(double)));
-    connect(setting,SIGNAL(getSignal_dt19(double)),traffic,SLOT(show_L3_b(double)));
-    connect(setting,SIGNAL(getSignal_dt20(double)),traffic,SLOT(show_L3_c(double)));
-    connect(setting,SIGNAL(getSignal_dt21(double)),traffic,SLOT(show_Obj0_dis(double)));
-    connect(setting,SIGNAL(getSignal_dt22(double)),traffic,SLOT(show_Obj0_angle(double)));
-    connect(setting,SIGNAL(getSignal_dt23(double)),traffic,SLOT(show_Obj0_heading(double)));
-    connect(setting,SIGNAL(getSignal_dt24(double)),traffic,SLOT(show_Obj0_width(double)));
-    connect(setting,SIGNAL(getSignal_dt25(double)),traffic,SLOT(show_Obj0_class(double)));
-    connect(setting,SIGNAL(getSignal_dt26(double)),traffic,SLOT(show_Obj1_dis(double)));
-    connect(setting,SIGNAL(getSignal_dt27(double)),traffic,SLOT(show_Obj1_angle(double)));
-    connect(setting,SIGNAL(getSignal_dt28(double)),traffic,SLOT(show_Obj1_heading(double)));
-    connect(setting,SIGNAL(getSignal_dt29(double)),traffic,SLOT(show_Obj1_width(double)));
-    connect(setting,SIGNAL(getSignal_dt30(double)),traffic,SLOT(show_Obj1_class(double)));
-    connect(setting,SIGNAL(getSignal_dt31(double)),traffic,SLOT(show_Obj2_dis(double)));
-    connect(setting,SIGNAL(getSignal_dt32(double)),traffic,SLOT(show_Obj2_angle(double)));
-    connect(setting,SIGNAL(getSignal_dt33(double)),traffic,SLOT(show_Obj2_heading(double)));
-    connect(setting,SIGNAL(getSignal_dt34(double)),traffic,SLOT(show_Obj2_width(double)));
-    connect(setting,SIGNAL(getSignal_dt35(double)),traffic,SLOT(show_Obj2_class(double)));
-    connect(setting,SIGNAL(getSignal_dt36(double)),traffic,SLOT(show_Obj3_dis(double)));
-    connect(setting,SIGNAL(getSignal_dt37(double)),traffic,SLOT(show_Obj3_angle(double)));
-    connect(setting,SIGNAL(getSignal_dt38(double)),traffic,SLOT(show_Obj3_heading(double)));
-    connect(setting,SIGNAL(getSignal_dt39(double)),traffic,SLOT(show_Obj3_width(double)));
-    connect(setting,SIGNAL(getSignal_dt40(double)),traffic,SLOT(show_Obj3_class(double)));
-    connect(setting,SIGNAL(getSignal_dt41(double)),traffic,SLOT(show_Obj4_dis(double)));
-    connect(setting,SIGNAL(getSignal_dt42(double)),traffic,SLOT(show_Obj4_angle(double)));
-    connect(setting,SIGNAL(getSignal_dt43(double)),traffic,SLOT(show_Obj4_heading(double)));
-    connect(setting,SIGNAL(getSignal_dt44(double)),traffic,SLOT(show_Obj4_width(double)));
-    connect(setting,SIGNAL(getSignal_dt45(double)),traffic,SLOT(show_Obj4_class(double)));
-    connect(setting,SIGNAL(getTraffic_signal(int)),traffic,SLOT(showNRYG_light(int)));
-    //connect(setting,SIGNAL,traffic,SLOT);
-    //connect(setting,SIGNAL,traffic,SLOT);
 
 }
 

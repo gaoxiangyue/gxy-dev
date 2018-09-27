@@ -75,6 +75,8 @@ private slots:
     void posingcenter();
 
 public slots:
+    void receive_ecu_data(ECU2HMI_DATA data);
+private:
     void setgeocenter(double lon,double lat);
     void setRoadPointNo(int No);
 signals:

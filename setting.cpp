@@ -64,7 +64,6 @@ Setting::Setting(QWidget *parent)  :
     hmi2ecu_data.dt7_RoadPointLspeed=(36);
     hmi2ecu_data.dt8_ReservedRet=(100);
     hmi2ecu_data.dt9_ReservedRet=(100);
-    hmi2ecu_data.dt10_ReservedRet=(100);
     this->refreshRequestLine();
 
     QPalette pe;
@@ -323,54 +322,7 @@ void Setting::showResponse(const QString &s)
     if(!str.isEmpty())//exam format
         ecu2hmi_data=this->ParseRString(str);
     {
-        emit getSystem_mode(ecu2hmi_data.dt0_systemMode);
-        emit getSystem_warning(ecu2hmi_data.dt1_warningRet);
-        emit getSteering_Angle(ecu2hmi_data.dt2_SteeringAngle);
-        emit getRoadPoint_No(ecu2hmi_data.dt3_RoadPointNo);
-        emit getCurrent_Pos(ecu2hmi_data.dt4_CurrentLon,ecu2hmi_data.dt5_CurrentLat);
-        emit getCurrent_Alt(ecu2hmi_data.dt6_CurrentAlt);
-        emit getVehicle_speed(ecu2hmi_data.dt7_VehicleSpeed);
-        emit getTraffic_signal(ecu2hmi_data.dt8_TafficSignal);
-        //Lane_Parameters
-        emit getSignal_dt9(ecu2hmi_data.dt9_L0_A0_Ret);
-        emit getSignal_dt10(ecu2hmi_data.dt10_L0_B0_Ret);
-        emit getSignal_dt11(ecu2hmi_data.dt11_L0_C0_Ret);
-        emit getSignal_dt12(ecu2hmi_data.dt12_L1_A1_Ret);
-        emit getSignal_dt13(ecu2hmi_data.dt13_L1_B1_Ret);
-        emit getSignal_dt14(ecu2hmi_data.dt14_L1_C1_Ret);
-        emit getSignal_dt15(ecu2hmi_data.dt15_L2_A2_Ret);
-        emit getSignal_dt16(ecu2hmi_data.dt16_L2_B2_Ret);
-        emit getSignal_dt17(ecu2hmi_data.dt17_L2_C2_Ret);
-        emit getSignal_dt18(ecu2hmi_data.dt18_L3_A3_Ret);
-        emit getSignal_dt19(ecu2hmi_data.dt19_L3_B3_Ret);
-        emit getSignal_dt20(ecu2hmi_data.dt20_L3_C3_Ret);
-        //Object_Parameters
-        emit getSignal_dt21(ecu2hmi_data.dt21_Obj0_Dis);
-        emit getSignal_dt22(ecu2hmi_data.dt22_Obj0_Angle);
-        emit getSignal_dt23(ecu2hmi_data.dt23_Obj0_Heading);
-        emit getSignal_dt24(ecu2hmi_data.dt24_Obj0_Width);
-        emit getSignal_dt25(ecu2hmi_data.dt25_Obj0_Class);
-        emit getSignal_dt26(ecu2hmi_data.dt26_Obj1_Dis);
-        emit getSignal_dt27(ecu2hmi_data.dt27_Obj1_Angle);
-        emit getSignal_dt28(ecu2hmi_data.dt28_Obj1_Heading);
-        emit getSignal_dt29(ecu2hmi_data.dt29_Obj1_Width);
-        emit getSignal_dt30(ecu2hmi_data.dt30_Obj1_Class);
-        emit getSignal_dt31(ecu2hmi_data.dt31_Obj2_Dis);
-        emit getSignal_dt32(ecu2hmi_data.dt32_Obj2_Angle);
-        emit getSignal_dt33(ecu2hmi_data.dt33_Obj2_Heading);
-        emit getSignal_dt34(ecu2hmi_data.dt34_Obj2_Width);
-        emit getSignal_dt35(ecu2hmi_data.dt35_Obj2_Class);
-        emit getSignal_dt36(ecu2hmi_data.dt36_Obj3_Dis);
-        emit getSignal_dt37(ecu2hmi_data.dt37_Obj3_Angle);
-        emit getSignal_dt38(ecu2hmi_data.dt38_Obj3_Heading);
-        emit getSignal_dt39(ecu2hmi_data.dt39_Obj3_Width);
-        emit getSignal_dt40(ecu2hmi_data.dt40_Obj3_Class);
-        emit getSignal_dt41(ecu2hmi_data.dt41_Obj4_Dis);
-        emit getSignal_dt42(ecu2hmi_data.dt42_Obj4_Angle);
-        emit getSignal_dt43(ecu2hmi_data.dt43_Obj4_Heading);
-        emit getSignal_dt44(ecu2hmi_data.dt44_Obj4_Width);
-        emit getSignal_dt45(ecu2hmi_data.dt45_Obj4_Class);
-        emit getSignal_dt46(ecu2hmi_data.dt46_ReservedRet);
+        emit getSignal_ecu2hmi(ecu2hmi_data);
     }
     normal=RESPON_THRESHOLD;
 }
@@ -474,150 +426,84 @@ ECU2HMI_DATA Setting::ParseRString(QString s)
     int ep=0;
     sp=s.indexOf("<",sp);
     ep=s.indexOf(",",sp+1);
-    data.dt0_systemMode=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
+    data.dt0_drive_mode=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt1_warningRet=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
+    data.dt1_system_state=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt2_SteeringAngle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt2_vehicle_stangle=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt3_RoadPointNo=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
+    data.dt3_navi_id=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt4_CurrentLon=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt4_vehicle_lon=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt5_CurrentLat=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt5_vehicle_lat=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt6_CurrentAlt=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt6_vehicle_alt=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt7_VehicleSpeed=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt7_vehicle_speed=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt8_TafficSignal=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
+    data.dt8_traffic_sign=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     //Lane_Parameters
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt9_L0_A0_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt9_lane_id=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt10_L0_B0_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt10_lane_a=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt11_L0_C0_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt11_lane_b=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt12_L1_A1_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt12_lane_c=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt13_L1_B1_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt13_lane_class=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt14_L1_C1_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt14_lane_width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt15_L2_A2_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt15_object_id=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt16_L2_B2_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt16_object_x=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt17_L2_C2_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt17_object_y=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt18_L3_A3_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt18_object_vx=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt19_L3_B3_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt19_object_vy=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt20_L3_C3_Ret=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    //Object_Parameters
-    //0
+    data.dt20_object_class=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt21_Obj0_Dis=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt21_object_width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt22_Obj0_Angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt22_object_length=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt23_Obj0_Heading=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt23_object_height=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     sp=ep;
     ep=s.indexOf(",",sp+1);
-    data.dt24_Obj0_Width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt25_Obj0_Class=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt26_Obj1_Dis=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt27_Obj1_Angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt28_Obj1_Heading=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt29_Obj1_Width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt30_Obj1_Class=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt31_Obj2_Dis=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt32_Obj2_Angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt33_Obj2_Heading=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt34_Obj2_Width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt35_Obj2_Class=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt36_Obj3_Dis=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt37_Obj3_Angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt38_Obj3_Heading=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt39_Obj3_Width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt40_Obj3_Class=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt41_Obj4_Dis=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt42_Obj4_Angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt43_Obj4_Heading=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt44_Obj4_Width=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-    sp=ep;
-    ep=s.indexOf(",",sp+1);
-    data.dt45_Obj4_Class=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
-
+    data.dt24_object_angle=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
     //...
     sp=ep;
     ep=s.indexOf("/",sp+1);
-    data.dt46_ReservedRet=s.mid(sp+1,ep-sp-1).toDouble(Q_NULLPTR);
+    data.dt25_reserved_ret=s.mid(sp+1,ep-sp-1).toInt(Q_NULLPTR,10);
 
 /*
     qDebug()<<"Parse_Test0~4 8~10"<<data.dt0_systemMode<<""
@@ -643,7 +529,7 @@ ECU2HMI_DATA Setting::ParseRString(QString s)
 void Setting::refreshRequestLine()
 {
     //qDebug()<<"requestLineEdit Refresh...";
-    QString str=tr("<%1,%2,%3,%4,%5,%6,%7,%8,%9,%10,%11/>")
+    QString str=tr("<%1,%2,%3,%4,%5,%6,%7,%8,%9,%10/>")
             .arg(hmi2ecu_data.dt0_systemMode)
             .arg(hmi2ecu_data.dt1_cruisingSpeed)
             .arg(hmi2ecu_data.dt2_timeHeadway)
@@ -653,8 +539,7 @@ void Setting::refreshRequestLine()
             .arg(QString::number(hmi2ecu_data.dt6_RoadPointAlt,10,3))
             .arg(hmi2ecu_data.dt7_RoadPointLspeed)
             .arg(hmi2ecu_data.dt8_ReservedRet)
-            .arg(hmi2ecu_data.dt9_ReservedRet)
-            .arg(hmi2ecu_data.dt10_ReservedRet);
+            .arg(hmi2ecu_data.dt9_ReservedRet);
     if(requestLineEdit->toPlainText()!=str)
     requestLineEdit->setText(str);
 }
