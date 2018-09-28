@@ -144,7 +144,6 @@ void Vehicle::showVehicle_speed(double vehicle_speed)
 {
     //if(vehicle_speed>120)vehicle_speed=0;
     this->vehicle_speed=vehicle_speed;
-    this->repaint();//Only one or hight time cost
 }
 
 void Vehicle::showEngine_temp(double engine_temp)

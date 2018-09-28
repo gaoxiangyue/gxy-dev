@@ -94,12 +94,19 @@ Widget::Widget(QWidget *parent) :
     connect(setting, SIGNAL(getSignal_ecu2hmi(ECU2HMI_DATA)),map,SLOT(receive_ecu_data(ECU2HMI_DATA)));
     connect(setting, SIGNAL(getSignal_ecu2hmi(ECU2HMI_DATA)),traffic,SLOT(receive_ecu_data(ECU2HMI_DATA)));
 
-
+    m_nTimerID=this->startTimer(60);
 }
 
 Widget::~Widget()
 {
 
+}
+
+void Widget::timerEvent(QTimerEvent *event)
+{
+    if(event->timerId() == m_nTimerID){
+        stackedWidget->currentWidget()->repaint();
+    }
 }
 
 void Widget::selectItem(int index)

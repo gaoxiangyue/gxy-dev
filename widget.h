@@ -43,6 +43,7 @@ class Widget : public QWidget
 public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
+    virtual void timerEvent( QTimerEvent *event);
 
 private:
     //
@@ -57,6 +58,7 @@ private:
     QStackedWidget *stackedWidget;
     QList < Button *> btlist;
     int left_num;
+    int m_nTimerID;
 
 private slots:
     void selectItem0();

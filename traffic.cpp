@@ -92,7 +92,6 @@ void Traffic::paintEvent(QPaintEvent *)
 void Traffic::mousePressEvent(QMouseEvent *event)
 {
     presspos=event->pos();
-    //repaint();
 }
 
 void Traffic::mouseMoveEvent(QMouseEvent *event)
@@ -101,6 +100,7 @@ void Traffic::mouseMoveEvent(QMouseEvent *event)
     x_range=x_range-moveingpos.x()/20;
     if(x_range<8)x_range=8;
     if(x_range>100)x_range=100;
+    this->repaint();
 }
 
 QPoint Traffic::vhcXY2winXY(double vhcX, double vhcY)
@@ -138,8 +138,8 @@ void Traffic::receive_ecu_data(ECU2HMI_DATA data)
     obj_ang[j]=data.dt24_object_angle;
     obj_width[j]=data.dt21_object_width;
     obj_class[j]=data.dt20_object_class;
-    qDebug()<<"test"<<i<<j;
-    qDebug()<<"pos0"<<obj_x[0]<<obj_y[0];
-    qDebug()<<"pos1"<<obj_x[1]<<obj_y[1];
-    this->repaint();
+//    qDebug()<<"test"<<i<<j;
+//    qDebug()<<"pos0"<<obj_x[0]<<obj_y[0];
+//    qDebug()<<"pos1"<<obj_x[1]<<obj_y[1];
+//    this->repaint();
 }
